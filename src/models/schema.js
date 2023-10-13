@@ -1,5 +1,64 @@
 export const schema = {
     "models": {
+        "Email": {
+            "name": "Email",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "AWSEmail",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Emails",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Client": {
             "name": "Client",
             "fields": {
@@ -17,11 +76,11 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "website": {
-                    "name": "website",
+                "name": {
+                    "name": "name",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "social_platforms": {
@@ -34,22 +93,38 @@ export const schema = {
                 },
                 "niches": {
                     "name": "niches",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "website": {
+                    "name": "website",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "name": {
-                    "name": "name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "ugc_platforms_question": {
                     "name": "ugc_platforms_question",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "ugc_platform_experience": {
+                    "name": "ugc_platform_experience",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "marketing_emails": {
+                    "name": "marketing_emails",
+                    "isArray": false,
+                    "type": "Boolean",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -112,20 +187,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "social_platforms": {
-                    "name": "social_platforms",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "niches": {
-                    "name": "niches",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "name": {
                     "name": "name",
                     "isArray": false,
@@ -133,8 +194,31 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "niches": {
+                    "name": "niches",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "social_platforms": {
+                    "name": "social_platforms",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "ugc_platforms_question": {
                     "name": "ugc_platforms_question",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "ugc_platform_experience": {
+                    "name": "ugc_platform_experience",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -147,6 +231,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
+                },
+                "marketing_emails": {
+                    "name": "marketing_emails",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -194,5 +285,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "cbc5419300e683c65c09c3a51080a67e"
+    "version": "eb8711da1164f7b9d45d6170a5b2f5c8"
 };

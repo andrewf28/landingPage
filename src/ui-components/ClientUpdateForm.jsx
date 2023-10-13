@@ -20,10 +20,9 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Client } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { getClient } from "../graphql/queries";
-import { updateClient } from "../graphql/mutations";
+import { DataStore } from "aws-amplify";
 function ArrayField({
   items = [],
   onChange,
@@ -239,12 +238,7 @@ export default function ClientUpdateForm(props) {
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? (
-            await API.graphql({
-              query: getClient.replaceAll("__typename", ""),
-              variables: { id: idProp },
-            })
-          )?.data?.getClient
+        ? await DataStore.query(Client, idProp)
         : clientModelProp;
       setClientRecord(record);
     };
@@ -299,12 +293,12 @@ export default function ClientUpdateForm(props) {
         let modelFields = {
           email,
           name,
-          social_platforms: social_platforms ?? null,
-          niches: niches ?? null,
-          website: website ?? null,
-          ugc_platforms_question: ugc_platforms_question ?? null,
-          ugc_platform_experience: ugc_platform_experience ?? null,
-          marketing_emails: marketing_emails ?? null,
+          social_platforms,
+          niches,
+          website,
+          ugc_platforms_question,
+          ugc_platform_experience,
+          marketing_emails,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -334,22 +328,17 @@ export default function ClientUpdateForm(props) {
               modelFields[key] = null;
             }
           });
-          await API.graphql({
-            query: updateClient.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                id: clientRecord.id,
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(
+            Client.copyOf(clientRecord, (updated) => {
+              Object.assign(updated, modelFields);
+            })
+          );
           if (onSuccess) {
             onSuccess(modelFields);
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}

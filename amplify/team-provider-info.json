@@ -10,6 +10,11 @@
       "StackName": "amplify-buzzlylandingpage-staging-210014",
       "StackId": "arn:aws:cloudformation:us-east-2:845753791306:stack/amplify-buzzlylandingpage-staging-210014/575ec250-6942-11ee-9f58-060aa4adf045",
       "AmplifyAppId": "d2q1p4lpjqliu2"
+    },
+    "categories": {
+      "api": {
+        "BuzzlyLandingPage": {}
+      }
     }
   }
 }

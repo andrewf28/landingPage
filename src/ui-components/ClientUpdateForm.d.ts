@@ -7,6 +7,7 @@
 import * as React from "react";
 import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Client } from "../models";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
@@ -48,7 +49,7 @@ export declare type ClientUpdateFormProps = React.PropsWithChildren<{
     overrides?: ClientUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    client?: any;
+    client?: Client;
     onSubmit?: (fields: ClientUpdateFormInputValues) => ClientUpdateFormInputValues;
     onSuccess?: (fields: ClientUpdateFormInputValues) => void;
     onError?: (fields: ClientUpdateFormInputValues, errorMessage: string) => void;

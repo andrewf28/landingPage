@@ -6,6 +6,34 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerEmail = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Email, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly email?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyEmail = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Email, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly email?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Email = LazyLoading extends LazyLoadingDisabled ? EagerEmail : LazyEmail
+
+export declare const Email: (new (init: ModelInit<Email>) => Email) & {
+  copyOf(source: Email, mutator: (draft: MutableModel<Email>) => MutableModel<Email> | void): Email;
+}
+
 type EagerClient = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Client, 'id'>;
@@ -13,11 +41,13 @@ type EagerClient = {
   };
   readonly id: string;
   readonly email: string;
-  readonly website?: string | null;
-  readonly social_platforms?: (string | null)[] | null;
-  readonly niches?: string | null;
   readonly name: string;
-  readonly ugc_platforms_question?: string | null;
+  readonly social_platforms?: (string | null)[] | null;
+  readonly niches?: (string | null)[] | null;
+  readonly website?: string | null;
+  readonly ugc_platforms_question?: (string | null)[] | null;
+  readonly ugc_platform_experience?: string | null;
+  readonly marketing_emails?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -29,11 +59,13 @@ type LazyClient = {
   };
   readonly id: string;
   readonly email: string;
-  readonly website?: string | null;
-  readonly social_platforms?: (string | null)[] | null;
-  readonly niches?: string | null;
   readonly name: string;
-  readonly ugc_platforms_question?: string | null;
+  readonly social_platforms?: (string | null)[] | null;
+  readonly niches?: (string | null)[] | null;
+  readonly website?: string | null;
+  readonly ugc_platforms_question?: (string | null)[] | null;
+  readonly ugc_platform_experience?: string | null;
+  readonly marketing_emails?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -51,11 +83,13 @@ type EagerCreator = {
   };
   readonly id: string;
   readonly email: string;
-  readonly social_platforms?: string | null;
-  readonly niches?: string | null;
   readonly name: string;
-  readonly ugc_platforms_question?: string | null;
+  readonly niches?: (string | null)[] | null;
+  readonly social_platforms?: string | null;
+  readonly ugc_platforms_question?: (string | null)[] | null;
+  readonly ugc_platform_experience?: string | null;
   readonly social_urls?: (string | null)[] | null;
+  readonly marketing_emails?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -67,11 +101,13 @@ type LazyCreator = {
   };
   readonly id: string;
   readonly email: string;
-  readonly social_platforms?: string | null;
-  readonly niches?: string | null;
   readonly name: string;
-  readonly ugc_platforms_question?: string | null;
+  readonly niches?: (string | null)[] | null;
+  readonly social_platforms?: string | null;
+  readonly ugc_platforms_question?: (string | null)[] | null;
+  readonly ugc_platform_experience?: string | null;
   readonly social_urls?: (string | null)[] | null;
+  readonly marketing_emails?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

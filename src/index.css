@@ -8,7 +8,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  background-image: url('../public/ante-hamersmit-gi1f13S1-64-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* This will make the image fixed while content scrolls */
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -20,4 +26,9 @@ code {
   flex-direction: column;
   align-items: center;  /* This will center everything horizontally */
   width: 100%;  /* Ensures the container takes the full width of its parent */
+  gap: 20px;  /* Adjust this value to your desired padding */
+}
+
+.form {
+  background-color:#FFEE80;
 }

@@ -7,6 +7,7 @@
 import * as React from "react";
 import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Creator } from "../models";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
@@ -48,7 +49,7 @@ export declare type CreatorUpdateFormProps = React.PropsWithChildren<{
     overrides?: CreatorUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    creator?: any;
+    creator?: Creator;
     onSubmit?: (fields: CreatorUpdateFormInputValues) => CreatorUpdateFormInputValues;
     onSuccess?: (fields: CreatorUpdateFormInputValues) => void;
     onError?: (fields: CreatorUpdateFormInputValues, errorMessage: string) => void;

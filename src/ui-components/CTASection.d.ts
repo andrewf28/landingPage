@@ -13,8 +13,8 @@ export declare type CTASectionOverridesProps = {
     "Type Lock Up"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 436"?: PrimitiveOverrideProps<FlexProps>;
     Newsletter?: PrimitiveOverrideProps<TextProps>;
-    "Stay in touch and never miss an update"?: PrimitiveOverrideProps<TextProps>;
-    "Keep up to date on the latest and greatest in the frontend and fullstack community"?: PrimitiveOverrideProps<TextProps>;
+    "Get exciting updates about Buzzly"?: PrimitiveOverrideProps<TextProps>;
+    "Never miss a beat with our free newsletter on everything Buzzly and UGC"?: PrimitiveOverrideProps<TextProps>;
     Form?: PrimitiveOverrideProps<FlexProps>;
     TextField?: PrimitiveOverrideProps<TextFieldProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;

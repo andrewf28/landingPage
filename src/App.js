@@ -7,19 +7,43 @@ import '@aws-amplify/ui-react/styles.css'
 
 
 import Home from "./pages/Home";
-import ClientForm from "./pages/ClientForm"
-import CreatorForm from "./pages/CreatorForm"
+import Client from "./pages/Client"
+import Creator from "./pages/Creator"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import Blog from "./pages/Blog"
 
+import 
+{
+  NavBarHeader2,
+  MarketingFooterBrand,
+  CTASection
+} from './ui-components'
 
 function App() {
+  
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/creator_form" element={<CreatorForm/>}></Route>
-        <Route path="/client_form" element={<ClientForm/>}></Route>
-      </Routes>
-    </Router>
+    <div className="container">
+      <NavBarHeader2/>
+      
+
+      
+      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/creators" element={<Creator/>}></Route>
+          <Route path="/clients" element={<Client/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
+          <Route path="/contact" element={<Contact/>}></Route>
+          <Route path="/Blog" element={<Blog/>}></Route>
+
+          
+        </Routes>
+      </Router>
+      
+      <MarketingFooterBrand/>
+    </div>
   );
 }
 

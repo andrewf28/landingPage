@@ -1,6 +1,57 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createEmail = /* GraphQL */ `
+  mutation CreateEmail(
+    $input: CreateEmailInput!
+    $condition: ModelEmailConditionInput
+  ) {
+    createEmail(input: $input, condition: $condition) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const updateEmail = /* GraphQL */ `
+  mutation UpdateEmail(
+    $input: UpdateEmailInput!
+    $condition: ModelEmailConditionInput
+  ) {
+    updateEmail(input: $input, condition: $condition) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const deleteEmail = /* GraphQL */ `
+  mutation DeleteEmail(
+    $input: DeleteEmailInput!
+    $condition: ModelEmailConditionInput
+  ) {
+    deleteEmail(input: $input, condition: $condition) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
 export const createClient = /* GraphQL */ `
   mutation CreateClient(
     $input: CreateClientInput!
@@ -9,13 +60,18 @@ export const createClient = /* GraphQL */ `
     createClient(input: $input, condition: $condition) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -28,13 +84,18 @@ export const updateClient = /* GraphQL */ `
     updateClient(input: $input, condition: $condition) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -47,13 +108,18 @@ export const deleteClient = /* GraphQL */ `
     deleteClient(input: $input, condition: $condition) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -66,13 +132,18 @@ export const createCreator = /* GraphQL */ `
     createCreator(input: $input, condition: $condition) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -85,13 +156,18 @@ export const updateCreator = /* GraphQL */ `
     updateCreator(input: $input, condition: $condition) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -104,13 +180,18 @@ export const deleteCreator = /* GraphQL */ `
     deleteCreator(input: $input, condition: $condition) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }

@@ -68,7 +68,7 @@ export default function ClientInfo(props) {
               fontFamily="Inter"
               fontSize="16px"
               fontWeight="700"
-              color="rgba(188,236,245,1)"
+              color="rgba(255,235,102,1)"
               lineHeight="24px"
               textAlign="center"
               display="block"

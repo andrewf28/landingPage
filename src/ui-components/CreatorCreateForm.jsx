@@ -20,9 +20,9 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Creator } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { createCreator } from "../graphql/mutations";
+import { DataStore } from "aws-amplify";
 function ArrayField({
   items = [],
   onChange,
@@ -315,14 +315,7 @@ export default function CreatorCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await API.graphql({
-            query: createCreator.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(new Creator(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -331,8 +324,7 @@ export default function CreatorCreateForm(props) {
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}

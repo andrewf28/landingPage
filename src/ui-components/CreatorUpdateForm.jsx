@@ -20,10 +20,9 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Creator } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { getCreator } from "../graphql/queries";
-import { updateCreator } from "../graphql/mutations";
+import { DataStore } from "aws-amplify";
 function ArrayField({
   items = [],
   onChange,
@@ -241,12 +240,7 @@ export default function CreatorUpdateForm(props) {
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? (
-            await API.graphql({
-              query: getCreator.replaceAll("__typename", ""),
-              variables: { id: idProp },
-            })
-          )?.data?.getCreator
+        ? await DataStore.query(Creator, idProp)
         : creatorModelProp;
       setCreatorRecord(record);
     };
@@ -301,12 +295,12 @@ export default function CreatorUpdateForm(props) {
         let modelFields = {
           email,
           name,
-          niches: niches ?? null,
-          social_platforms: social_platforms ?? null,
-          ugc_platforms_question: ugc_platforms_question ?? null,
-          ugc_platform_experience: ugc_platform_experience ?? null,
-          social_urls: social_urls ?? null,
-          marketing_emails: marketing_emails ?? null,
+          niches,
+          social_platforms,
+          ugc_platforms_question,
+          ugc_platform_experience,
+          social_urls,
+          marketing_emails,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -336,22 +330,17 @@ export default function CreatorUpdateForm(props) {
               modelFields[key] = null;
             }
           });
-          await API.graphql({
-            query: updateCreator.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                id: creatorRecord.id,
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(
+            Creator.copyOf(creatorRecord, (updated) => {
+              Object.assign(updated, modelFields);
+            })
+          );
           if (onSuccess) {
             onSuccess(modelFields);
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}

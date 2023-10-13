@@ -20,9 +20,9 @@ import {
   useTheme,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Client } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { createClient } from "../graphql/mutations";
+import { DataStore } from "aws-amplify";
 function ArrayField({
   items = [],
   onChange,
@@ -313,14 +313,7 @@ export default function ClientCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await API.graphql({
-            query: createClient.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(new Client(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -329,8 +322,7 @@ export default function ClientCreateForm(props) {
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}

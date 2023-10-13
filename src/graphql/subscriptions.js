@@ -1,18 +1,65 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateEmail = /* GraphQL */ `
+  subscription OnCreateEmail($filter: ModelSubscriptionEmailFilterInput) {
+    onCreateEmail(filter: $filter) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateEmail = /* GraphQL */ `
+  subscription OnUpdateEmail($filter: ModelSubscriptionEmailFilterInput) {
+    onUpdateEmail(filter: $filter) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteEmail = /* GraphQL */ `
+  subscription OnDeleteEmail($filter: ModelSubscriptionEmailFilterInput) {
+    onDeleteEmail(filter: $filter) {
+      id
+      email
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
 export const onCreateClient = /* GraphQL */ `
   subscription OnCreateClient($filter: ModelSubscriptionClientFilterInput) {
     onCreateClient(filter: $filter) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -22,13 +69,18 @@ export const onUpdateClient = /* GraphQL */ `
     onUpdateClient(filter: $filter) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -38,13 +90,18 @@ export const onDeleteClient = /* GraphQL */ `
     onDeleteClient(filter: $filter) {
       id
       email
-      website
+      name
       social_platforms
       niches
-      name
+      website
       ugc_platforms_question
+      ugc_platform_experience
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -54,13 +111,18 @@ export const onCreateCreator = /* GraphQL */ `
     onCreateCreator(filter: $filter) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -70,13 +132,18 @@ export const onUpdateCreator = /* GraphQL */ `
     onUpdateCreator(filter: $filter) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -86,13 +153,18 @@ export const onDeleteCreator = /* GraphQL */ `
     onDeleteCreator(filter: $filter) {
       id
       email
-      social_platforms
-      niches
       name
+      niches
+      social_platforms
       ugc_platforms_question
+      ugc_platform_experience
       social_urls
+      marketing_emails
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }

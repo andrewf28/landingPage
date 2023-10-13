@@ -6,20 +6,18 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { ButtonProps, FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarHeader2OverridesProps = {
     NavBarHeader2?: PrimitiveOverrideProps<FlexProps>;
     "Frame 5"?: PrimitiveOverrideProps<FlexProps>;
-    "Amplify Mark"?: PrimitiveOverrideProps<ViewProps>;
-    Union?: PrimitiveOverrideProps<IconProps>;
-    Home?: PrimitiveOverrideProps<TextProps>;
-    Products?: PrimitiveOverrideProps<TextProps>;
-    Pricing?: PrimitiveOverrideProps<TextProps>;
+    "\uD83E\uDD86 icon \"hive\""?: PrimitiveOverrideProps<FlexProps>;
+    Vector?: PrimitiveOverrideProps<IconProps>;
+    "For Clients"?: PrimitiveOverrideProps<TextProps>;
+    "For Creators"?: PrimitiveOverrideProps<TextProps>;
+    "About Us"?: PrimitiveOverrideProps<TextProps>;
     Contact?: PrimitiveOverrideProps<TextProps>;
-    actions?: PrimitiveOverrideProps<FlexProps>;
-    Button39493466?: PrimitiveOverrideProps<ButtonProps>;
-    Button39493467?: PrimitiveOverrideProps<ButtonProps>;
+    Blog?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type NavBarHeader2Props = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: NavBarHeader2OverridesProps | undefined | null;

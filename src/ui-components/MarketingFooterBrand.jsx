@@ -6,11 +6,22 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreCreateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Email } from "../models";
+import { schema } from "../models/schema";
 import { Button, Flex, Text, TextField } from "@aws-amplify/ui-react";
-import LogoWithText from "./LogoWithText";
 export default function MarketingFooterBrand(props) {
   const { overrides, ...rest } = props;
+  const [textFieldValue, setTextFieldValue] = useStateMutationAction("");
+  const buttonOnClick = useDataStoreCreateAction({
+    fields: { email: textFieldValue },
+    model: Email,
+    schema: schema,
+  });
   return (
     <Flex
       gap="32px"
@@ -21,7 +32,7 @@ export default function MarketingFooterBrand(props) {
       alignItems="center"
       position="relative"
       padding="40px 40px 40px 40px"
-      backgroundColor="rgba(233,249,252,1)"
+      backgroundColor="rgba(255,238,128,1)"
       {...getOverrideProps(overrides, "MarketingFooterBrand")}
       {...rest}
     >
@@ -114,6 +125,10 @@ export default function MarketingFooterBrand(props) {
             isDisabled={false}
             labelHidden={true}
             variation="default"
+            value={textFieldValue}
+            onChange={(event) => {
+              setTextFieldValue(event.target.value);
+            }}
             {...getOverrideProps(overrides, "TextField")}
           ></TextField>
           <Button
@@ -124,6 +139,9 @@ export default function MarketingFooterBrand(props) {
             isDisabled={false}
             variation="primary"
             children="Subscribe"
+            onClick={() => {
+              buttonOnClick();
+            }}
             {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>
@@ -141,252 +159,6 @@ export default function MarketingFooterBrand(props) {
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 40539414056")}
       >
-        <Flex
-          gap="8px"
-          direction="column"
-          width="unset"
-          height="unset"
-          justifyContent="flex-start"
-          alignItems="flex-start"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Frame 403")}
-        >
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="600"
-            color="rgba(48,64,80,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Products"
-            {...getOverrideProps(overrides, "Products")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Libraries"
-            {...getOverrideProps(overrides, "Libraries")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="CLI"
-            {...getOverrideProps(overrides, "CLI")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Studio"
-            {...getOverrideProps(overrides, "Studio")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Hosting"
-            {...getOverrideProps(overrides, "Hosting")}
-          ></Text>
-        </Flex>
-        <Flex
-          gap="8px"
-          direction="column"
-          width="unset"
-          height="unset"
-          justifyContent="flex-start"
-          alignItems="flex-start"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Frame 404")}
-        >
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="600"
-            color="rgba(48,64,80,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Resources"
-            {...getOverrideProps(overrides, "Resources")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Docs"
-            {...getOverrideProps(overrides, "Docs")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Learn"
-            {...getOverrideProps(overrides, "Learn")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Examples"
-            {...getOverrideProps(overrides, "Examples")}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(4,125,149,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="272px"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Changelog"
-            {...getOverrideProps(overrides, "Changelog")}
-          ></Text>
-        </Flex>
         <Flex
           gap="8px"
           direction="column"
@@ -425,7 +197,7 @@ export default function MarketingFooterBrand(props) {
             fontFamily="Inter"
             fontSize="16px"
             fontWeight="400"
-            color="rgba(4,125,149,1)"
+            color="rgba(204,177,0,1)"
             lineHeight="24px"
             textAlign="left"
             display="block"
@@ -447,7 +219,7 @@ export default function MarketingFooterBrand(props) {
             fontFamily="Inter"
             fontSize="16px"
             fontWeight="400"
-            color="rgba(4,125,149,1)"
+            color="rgba(204,177,0,1)"
             lineHeight="24px"
             textAlign="left"
             display="block"
@@ -469,7 +241,7 @@ export default function MarketingFooterBrand(props) {
             fontFamily="Inter"
             fontSize="16px"
             fontWeight="400"
-            color="rgba(4,125,149,1)"
+            color="rgba(204,177,0,1)"
             lineHeight="24px"
             textAlign="left"
             display="block"
@@ -488,57 +260,6 @@ export default function MarketingFooterBrand(props) {
             {...getOverrideProps(overrides, "Blog")}
           ></Text>
         </Flex>
-      </Flex>
-      <Flex
-        gap="0"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="space-between"
-        alignItems="center"
-        shrink="0"
-        alignSelf="stretch"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 433")}
-      >
-        <LogoWithText
-          width="127.88px"
-          height="18.91px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          color="brand"
-          {...getOverrideProps(overrides, "LogoWithText")}
-        ></LogoWithText>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(102,112,133,1)"
-          lineHeight="24px"
-          textAlign="right"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="© 2023 AWS Amplify UI. All rights reserved."
-          {...getOverrideProps(
-            overrides,
-            "\u00A9 2023 AWS Amplify UI. All rights reserved."
-          )}
-        ></Text>
       </Flex>
     </Flex>
   );

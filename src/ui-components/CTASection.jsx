@@ -21,7 +21,7 @@ export default function CTASection(props) {
       overflow="hidden"
       position="relative"
       padding="160px 160px 160px 160px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(239,239,143,1)"
       {...getOverrideProps(overrides, "CTASection")}
       {...rest}
     >
@@ -54,7 +54,7 @@ export default function CTASection(props) {
             fontFamily="Inter"
             fontSize="16px"
             fontWeight="700"
-            color="rgba(191,64,191,1)"
+            color="rgba(64,170,191,1)"
             lineHeight="24px"
             textAlign="left"
             display="block"
@@ -89,10 +89,10 @@ export default function CTASection(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Stay in touch and never miss an update"
+            children="Get exciting updates about Buzzly"
             {...getOverrideProps(
               overrides,
-              "Stay in touch and never miss an update"
+              "Get exciting updates about Buzzly"
             )}
           ></Text>
           <Text
@@ -113,10 +113,10 @@ export default function CTASection(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Keep up to date on the latest and greatest in the frontend and fullstack community"
+            children="Never miss a beat with our free newsletter on everything Buzzly and UGC"
             {...getOverrideProps(
               overrides,
-              "Keep up to date on the latest and greatest in the frontend and fullstack community"
+              "Never miss a beat with our free newsletter on everything Buzzly and UGC"
             )}
           ></Text>
         </Flex>

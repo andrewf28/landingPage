@@ -68,7 +68,7 @@ export default function CreatorInfo1(props) {
               fontFamily="Inter"
               fontSize="16px"
               fontWeight="700"
-              color="rgba(0,85,102,1)"
+              color="rgba(153,133,0,1)"
               lineHeight="24px"
               textAlign="center"
               display="block"

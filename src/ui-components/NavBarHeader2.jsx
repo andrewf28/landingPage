@@ -6,10 +6,22 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Button, Flex, Icon, Text, View } from "@aws-amplify/ui-react";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
+import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function NavBarHeader2(props) {
   const { overrides, ...rest } = props;
+  const vectorOnClick = useNavigateAction({ type: "url", url: "/" });
+  const forClientsOnClick = useNavigateAction({ type: "url", url: "/clients" });
+  const forCreatorsOnClick = useNavigateAction({
+    type: "url",
+    url: "/creators",
+  });
+  const aboutUsOnClick = useNavigateAction({ type: "url", url: "/about" });
+  const contactOnClick = useNavigateAction({ type: "url", url: "/contact" });
+  const blogOnClick = useNavigateAction({ type: "url", url: "/blog" });
   return (
     <Flex
       gap="10px"
@@ -38,31 +50,26 @@ export default function NavBarHeader2(props) {
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 5")}
       >
-        <View
-          width="34.55px"
-          height="30px"
+        <Flex
+          padding="0px 0px 0px 0px"
+          width="60.76px"
+          height="60px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           shrink="0"
           position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Amplify Mark")}
+          {...getOverrideProps(overrides, '\uD83E\uDD86 icon "hive"')}
         >
           <Icon
-            width="34.55px"
-            height="30px"
-            viewBox={{ minX: 0, minY: 0, width: 34.5517578125, height: 30 }}
+            width="60.76px"
+            height="60px"
+            viewBox={{ minX: 0, minY: 0, width: 60.759521484375, height: 60 }}
             paths={[
               {
-                d: "M21.4692 29.7592C21.5476 29.8948 21.6926 29.9784 21.8496 29.9784L25.2666 29.9784C25.6048 29.9784 25.8161 29.6131 25.647 29.3208L13.2346 7.86425C13.0656 7.572 12.6429 7.572 12.4738 7.86425C8.34493 15.0016 4.20619 22.1711 0.0594594 29.3425C-0.109529 29.6348 0.101807 30 0.439898 30L16.4449 30C16.783 30 16.9944 29.6347 16.8253 29.3424L15.1882 26.5124C15.1097 26.3768 14.9647 26.2932 14.8078 26.2932L6.62176 26.2932C6.45269 26.2932 6.34703 26.1106 6.43156 25.9644L12.6625 15.1933C12.7471 15.0472 12.9584 15.0472 13.0429 15.1933L21.4692 29.7592Z",
-                fill: "rgba(64,170,191,1)",
-                fillRule: "nonzero",
-              },
-              {
-                d: "M15.1924 3.16491C15.1139 3.30055 15.1139 3.46765 15.1924 3.60329L30.3233 29.7592C30.4017 29.8948 30.5468 29.9784 30.7037 29.9784L34.1118 29.9784C34.45 29.9784 34.6613 29.6131 34.4922 29.3208L17.6572 0.219188C17.4882 -0.0730631 17.0655 -0.0730625 16.8964 0.219189L15.1924 3.16491Z",
-                fill: "rgba(64,170,191,1)",
+                d: "M60.4026 15.1767L53.6521 1.84333C53.0783 0.713333 51.9104 0 50.6312 0L33.755 0C32.4758 0 31.3079 0.713333 30.7341 1.84333L24.9186 13.3333L10.1283 13.3333C8.84905 13.3333 7.68122 14.0467 7.10742 15.1767L0.356932 28.51C-0.118977 29.4467 -0.118977 30.5533 0.356932 31.4933L7.10742 44.8267C7.68122 45.9533 8.84905 46.6667 10.1283 46.6667L24.9186 46.6667L30.7375 58.1567C31.3079 59.2867 32.4758 60 33.755 60L50.6312 60C51.9104 60 53.0783 59.2867 53.6521 58.1567L60.4026 44.8233C60.8785 43.8867 60.8785 42.78 60.4026 41.84L54.4047 30L60.3992 18.1567C60.8751 17.22 60.8751 16.1133 60.4026 15.1767ZM35.8409 6.66667L48.5453 6.66667L53.6082 16.6667L48.5453 26.6667L35.8409 26.6667L30.778 16.6667L35.8409 6.66667ZM7.1513 30L12.2142 20L24.9186 20L29.9815 30L24.9186 40L12.2142 40L7.1513 30ZM48.5453 53.3333L35.8409 53.3333L30.778 43.3333L35.8409 33.3333L48.5453 33.3333L53.6082 43.3333L48.5453 53.3333Z",
+                fill: "rgba(255,228,51,1)",
                 fillRule: "nonzero",
               },
             ]}
@@ -75,9 +82,12 @@ export default function NavBarHeader2(props) {
             bottom="0%"
             left="0%"
             right="0%"
-            {...getOverrideProps(overrides, "Union")}
+            onClick={() => {
+              vectorOnClick();
+            }}
+            {...getOverrideProps(overrides, "Vector")}
           ></Icon>
-        </View>
+        </Flex>
         <Text
           fontFamily="Inter"
           fontSize="16px"
@@ -96,8 +106,11 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Home"
-          {...getOverrideProps(overrides, "Home")}
+          children="For Clients"
+          onClick={() => {
+            forClientsOnClick();
+          }}
+          {...getOverrideProps(overrides, "For Clients")}
         ></Text>
         <Text
           fontFamily="Inter"
@@ -117,8 +130,11 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Products"
-          {...getOverrideProps(overrides, "Products")}
+          children="For Creators"
+          onClick={() => {
+            forCreatorsOnClick();
+          }}
+          {...getOverrideProps(overrides, "For Creators")}
         ></Text>
         <Text
           fontFamily="Inter"
@@ -138,8 +154,11 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Pricing"
-          {...getOverrideProps(overrides, "Pricing")}
+          children="About Us"
+          onClick={() => {
+            aboutUsOnClick();
+          }}
+          {...getOverrideProps(overrides, "About Us")}
         ></Text>
         <Text
           fontFamily="Inter"
@@ -160,41 +179,35 @@ export default function NavBarHeader2(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Contact"
+          onClick={() => {
+            contactOnClick();
+          }}
           {...getOverrideProps(overrides, "Contact")}
         ></Text>
-      </Flex>
-      <Flex
-        gap="8px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "actions")}
-      >
-        <Button
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(13,26,38,1)"
+          lineHeight="24px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
           width="unset"
           height="unset"
+          gap="unset"
+          alignItems="unset"
           shrink="0"
-          size="default"
-          isDisabled={false}
-          variation="link"
-          children="Log in"
-          {...getOverrideProps(overrides, "Button39493466")}
-        ></Button>
-        <Button
-          width="unset"
-          height="unset"
-          shrink="0"
-          size="default"
-          isDisabled={false}
-          variation="primary"
-          children="Sign up"
-          {...getOverrideProps(overrides, "Button39493467")}
-        ></Button>
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Blog"
+          onClick={() => {
+            blogOnClick();
+          }}
+          {...getOverrideProps(overrides, "Blog")}
+        ></Text>
       </Flex>
     </Flex>
   );
