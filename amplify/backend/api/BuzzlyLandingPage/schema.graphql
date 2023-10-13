@@ -1,0 +1,24 @@
+type Client @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  email: String!
+  name: String!
+  social_platforms: [String]
+  niches: [String]
+  website: String
+  ugc_platforms_question: [String]
+  ugc_platform_experience: String
+  marketing_emails: Boolean
+}
+
+type Creator @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  email: String!
+  name: String!
+  niches: [String]
+  social_platforms: String
+  ugc_platforms_question: [String]
+  ugc_platform_experience: String
+  social_urls: [String]
+  marketing_emails: Boolean
+}
+ 
