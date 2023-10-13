@@ -9,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  background-image: url('../public/ante-hamersmit-gi1f13S1-64-unsplash.jpg');
+  background-image: url('../public/DALL·E 2023-10-13 19.23.11 - Render of a 3D hexagonal pattern in a rich yellow shade, giving an impression of depth and texture akin to a beehive. The hexagons are characterized b.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; /* This will make the image fixed while content scrolls */
@@ -30,5 +30,6 @@ code {
 }
 
 .form {
-  background-color:#FFEE80;
+  background-color:white;
+  width:75%
 }
