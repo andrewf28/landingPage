@@ -21,7 +21,7 @@ export default function BothInfo(props) {
       overflow="hidden"
       position="relative"
       padding="160px 240px 160px 240px"
-      backgroundColor="rgba(255,238,128,1)"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "BothInfo")}
       {...rest}
     >

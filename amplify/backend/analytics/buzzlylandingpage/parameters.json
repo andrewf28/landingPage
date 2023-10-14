@@ -1,0 +1,21 @@
+{
+    "appName": "buzzlylandingpage",
+    "roleName": "pinpointLambdaRoleb3095460",
+    "cloudformationPolicyName": "cloudformationPolicyb3095460",
+    "cloudWatchPolicyName": "cloudWatchPolicyb3095460",
+    "pinpointPolicyName": "pinpointPolicyb3095460",
+    "authPolicyName": "pinpoint_amplify_b3095460",
+    "unauthPolicyName": "pinpoint_amplify_b3095460",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

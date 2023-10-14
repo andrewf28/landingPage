@@ -32,7 +32,7 @@ export default function MarketingFooterBrand(props) {
       alignItems="center"
       position="relative"
       padding="40px 40px 40px 40px"
-      backgroundColor="rgba(255,238,128,1)"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "MarketingFooterBrand")}
       {...rest}
     >

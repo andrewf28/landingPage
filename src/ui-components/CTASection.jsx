@@ -6,10 +6,22 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreCreateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Email } from "../models";
+import { schema } from "../models/schema";
 import { Button, Flex, Text, TextField } from "@aws-amplify/ui-react";
 export default function CTASection(props) {
   const { overrides, ...rest } = props;
+  const [textFieldValue, setTextFieldValue] = useStateMutationAction("");
+  const buttonOnClick = useDataStoreCreateAction({
+    fields: { email: textFieldValue },
+    model: Email,
+    schema: schema,
+  });
   return (
     <Flex
       gap="10px"
@@ -21,7 +33,7 @@ export default function CTASection(props) {
       overflow="hidden"
       position="relative"
       padding="160px 160px 160px 160px"
-      backgroundColor="rgba(239,239,143,1)"
+      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "CTASection")}
       {...rest}
     >
@@ -141,6 +153,10 @@ export default function CTASection(props) {
             isDisabled={false}
             labelHidden={true}
             variation="default"
+            value={textFieldValue}
+            onChange={(event) => {
+              setTextFieldValue(event.target.value);
+            }}
             {...getOverrideProps(overrides, "TextField")}
           ></TextField>
           <Button
@@ -151,6 +167,9 @@ export default function CTASection(props) {
             isDisabled={false}
             variation="primary"
             children="Sign me up"
+            onClick={() => {
+              buttonOnClick();
+            }}
             {...getOverrideProps(overrides, "Button")}
           ></Button>
         </Flex>

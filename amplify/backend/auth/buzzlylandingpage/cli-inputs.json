@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "buzzlylandingpage_identitypool_14aa3b29",
+    "allowUnauthenticatedIdentities": true,
+    "authSelections": "identityPoolOnly",
+    "resourceName": "buzzlylandingpage",
+    "sharedId": "14aa3b29",
+    "serviceName": "Cognito",
+    "useDefault": "manual"
+  }
+}
