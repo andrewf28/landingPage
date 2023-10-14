@@ -6,6 +6,40 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerBlogPost = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<BlogPost, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title?: string | null;
+  readonly content?: string | null;
+  readonly author?: string | null;
+  readonly image?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyBlogPost = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<BlogPost, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title?: string | null;
+  readonly content?: string | null;
+  readonly author?: string | null;
+  readonly image?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type BlogPost = LazyLoading extends LazyLoadingDisabled ? EagerBlogPost : LazyBlogPost
+
+export declare const BlogPost: (new (init: ModelInit<BlogPost>) => BlogPost) & {
+  copyOf(source: BlogPost, mutator: (draft: MutableModel<BlogPost>) => MutableModel<BlogPost> | void): BlogPost;
+}
+
 type EagerEmail = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Email, 'id'>;

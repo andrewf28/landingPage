@@ -1,3 +1,11 @@
+type BlogPost @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  content: String
+  author: String
+  image: AWSURL
+}
+
 type Email @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail

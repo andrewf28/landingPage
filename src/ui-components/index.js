@@ -6,6 +6,8 @@
 
 export { default as ActionCard } from "./ActionCard";
 export { default as Ampligram } from "./Ampligram";
+export { default as BlogPostCreateForm } from "./BlogPostCreateForm";
+export { default as BlogPostUpdateForm } from "./BlogPostUpdateForm";
 export { default as BothInfo } from "./BothInfo";
 export { default as BuzzlyNavLink } from "./BuzzlyNavLink";
 export { default as CTASection } from "./CTASection";
