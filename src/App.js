@@ -12,6 +12,8 @@ import Creator from "./pages/Creator"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
 import Blog from "./pages/Blog"
+import TOS from "./pages/TOS"
+import Privacy from "./pages/Privacy"
 
 import 
 {
@@ -37,6 +39,8 @@ function App() {
           <Route path="/about" element={<About/>}></Route>
           <Route path="/contact" element={<Contact/>}></Route>
           <Route path="/Blog" element={<Blog/>}></Route>
+          <Route path="/terms" element={<TOS/>}></Route>
+          <Route path="/privacy" element={<Privacy/>}></Route>
 
           
         </Routes>
