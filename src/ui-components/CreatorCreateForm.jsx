@@ -19,9 +19,8 @@ import {
   TextField,
   useTheme,
 } from "@aws-amplify/ui-react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Creator } from "../models";
-import { fetchByPath, validateField } from "./utils";
+import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 function ArrayField({
   items = [],
@@ -335,7 +334,6 @@ export default function CreatorCreateForm(props) {
         label="Email"
         isRequired={true}
         isReadOnly={false}
-        placeholder="johndoe@buzzly.xyz"
         value={email}
         onChange={(e) => {
           let { value } = e.target;
@@ -367,7 +365,6 @@ export default function CreatorCreateForm(props) {
         label="Name"
         isRequired={true}
         isReadOnly={false}
-        placeholder="John Doe"
         value={name}
         onChange={(e) => {
           let { value } = e.target;
@@ -431,7 +428,6 @@ export default function CreatorCreateForm(props) {
           label="Niches"
           isRequired={false}
           isReadOnly={false}
-          placeholder="SkinCare, Outdoors, Makeup, etc..."
           value={currentNichesValue}
           onChange={(e) => {
             let { value } = e.target;
@@ -452,7 +448,6 @@ export default function CreatorCreateForm(props) {
         label="Social platforms"
         isRequired={false}
         isReadOnly={false}
-        placeholder="Instagram, Twitter, TikTok etc.."
         value={social_platforms}
         onChange={(e) => {
           let { value } = e.target;
@@ -501,9 +496,7 @@ export default function CreatorCreateForm(props) {
           setCurrentUgc_platforms_questionValue("");
         }}
         currentFieldValue={currentUgc_platforms_questionValue}
-        label={
-          "Have you worked with any other UGC focused platforms. If so which ones?"
-        }
+        label={"Ugc platforms question"}
         items={ugc_platforms_question}
         hasError={errors?.ugc_platforms_question?.hasError}
         runValidationTasks={async () =>
@@ -518,10 +511,9 @@ export default function CreatorCreateForm(props) {
         defaultFieldValue={""}
       >
         <TextField
-          label="Have you worked with any other UGC focused platforms. If so which ones?"
+          label="Ugc platforms question"
           isRequired={false}
           isReadOnly={false}
-          placeholder="Pearpop, Collabstr, Grin, etc..."
           value={currentUgc_platforms_questionValue}
           onChange={(e) => {
             let { value } = e.target;
@@ -544,7 +536,7 @@ export default function CreatorCreateForm(props) {
         ></TextField>
       </ArrayField>
       <TextField
-        label="If you answered yes to the previous question, how was your experience?"
+        label="Ugc platform experience"
         isRequired={false}
         isReadOnly={false}
         value={ugc_platform_experience}
@@ -612,7 +604,6 @@ export default function CreatorCreateForm(props) {
           label="Social urls"
           isRequired={false}
           isReadOnly={false}
-          placeholder="instagram.com/johndoe1/ ..."
           value={currentSocial_urlsValue}
           onChange={(e) => {
             let { value } = e.target;
@@ -632,7 +623,7 @@ export default function CreatorCreateForm(props) {
         ></TextField>
       </ArrayField>
       <SwitchField
-        label="Can we send you exciting emails about Buzzly?"
+        label="Marketing emails"
         defaultChecked={false}
         isDisabled={false}
         isChecked={marketing_emails}

@@ -10,7 +10,7 @@ import {
   getOverrideProps,
   useDataStoreCreateAction,
   useStateMutationAction,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import { Email } from "../models";
 import { schema } from "../models/schema";
 import { Button, Flex, Text, TextField } from "@aws-amplify/ui-react";

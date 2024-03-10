@@ -6,22 +6,15 @@
 
 /* eslint-disable */
 import * as React from "react";
-import {
-  getOverrideProps,
-  useDataStoreCreateAction,
-  useStateMutationAction,
-} from "@aws-amplify/ui-react/internal";
-import { Email } from "../models";
-import { schema } from "../models/schema";
+import { getOverrideProps, useStateMutationAction } from "./utils";
 import { Button, Flex, Text, TextField } from "@aws-amplify/ui-react";
 export default function MarketingFooterBrand(props) {
-  const { overrides, ...rest } = props;
-  const [textFieldValue, setTextFieldValue] = useStateMutationAction("");
-  const buttonOnClick = useDataStoreCreateAction({
-    fields: { email: textFieldValue },
-    model: Email,
-    schema: schema,
-  });
+  const { email, overrides, ...rest } = props;
+  const [textFieldPlaceholder, setTextFieldPlaceholder] =
+    useStateMutationAction("Your email");
+  const buttonOnClick = () => {
+    setTextFieldPlaceholder(" Thanks!");
+  };
   return (
     <Flex
       gap="32px"
@@ -119,15 +112,14 @@ export default function MarketingFooterBrand(props) {
           <TextField
             width="300px"
             height="unset"
-            placeholder="Your email"
+            placeholder={textFieldPlaceholder}
             shrink="0"
             size="default"
             isDisabled={false}
             labelHidden={true}
             variation="default"
-            value={textFieldValue}
             onChange={(event) => {
-              setTextFieldValue(event.target.value);
+              setTextFieldPlaceholder(event.target.value);
             }}
             {...getOverrideProps(overrides, "TextField")}
           ></TextField>

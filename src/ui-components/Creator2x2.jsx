@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { getOverrideProps } from "./utils";
 import Features2x2 from "./Features2x2";
 import { Flex } from "@aws-amplify/ui-react";
 export default function Creator2x2(props) {

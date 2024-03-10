@@ -5,8 +5,18 @@
  **************************************************************************/
 
 import * as React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Email } from "../models";
 import { ButtonProps, FlexProps, TextFieldProps, TextProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MarketingFooterBrandOverridesProps = {
     MarketingFooterBrand?: PrimitiveOverrideProps<FlexProps>;
@@ -25,6 +35,8 @@ export declare type MarketingFooterBrandOverridesProps = {
     Blog?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type MarketingFooterBrandProps = React.PropsWithChildren<Partial<FlexProps> & {
+    email?: Email;
+} & {
     overrides?: MarketingFooterBrandOverridesProps | undefined | null;
 }>;
 export default function MarketingFooterBrand(props: MarketingFooterBrandProps): React.ReactElement;
