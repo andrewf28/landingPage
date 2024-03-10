@@ -17,8 +17,8 @@ export default function NavBarHeader2(props) {
     url: "/creators",
   });
   const aboutUsOnClick = useNavigateAction({ type: "url", url: "/about" });
-  const contactOnClick = useNavigateAction({ type: "url", url: "/contact" });
-  const blogOnClick = useNavigateAction({ type: "url", url: "/blog" });
+  const contactOnClick = useNavigateAction({ type: "url", url: "/terms" });
+  const blogOnClick = useNavigateAction({ type: "url", url: "/privacy" });
   return (
     <Flex
       gap="10px"
@@ -175,7 +175,7 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Contact"
+          children="Terms of Service"
           onClick={() => {
             contactOnClick();
           }}
@@ -199,7 +199,7 @@ export default function NavBarHeader2(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Blog"
+          children="Privacy"
           onClick={() => {
             blogOnClick();
           }}
