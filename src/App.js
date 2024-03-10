@@ -13,6 +13,7 @@ import About from "./pages/About"
 import Contact from "./pages/Contact"
 import Blog from "./pages/Blog"
 import Privacy from "./pages/Privacy";
+import TOS from "./pages/TOS";
 
 import 
 {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}></Route>
           <Route path="/Blog" element={<Blog/>}></Route>
           <Route path="/privacy" element={<Privacy/>}></Route>
+          <Route path="/terms" element={<TOS/>}></Route>
 
           
         </Routes>
