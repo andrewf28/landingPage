@@ -9,10 +9,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  /* background-image: url('../public/DALL·E 2023-10-13 19.23.11 - Render of a 3D hexagonal pattern in a rich yellow shade, giving an impression of depth and texture akin to a beehive. The hexagons are characterized b.png'); */
-  /* background-size: cover;
+  background-image: url('../public/DALL·E 2023-10-13 19.23.11 - Render of a 3D hexagonal pattern in a rich yellow shade, giving an impression of depth and texture akin to a beehive. The hexagons are characterized b.png'); 
+   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;  */
+  background-attachment: fixed; 
 }
 
 
@@ -27,6 +27,7 @@ code {
   align-items: center;  /* This will center everything horizontally */
   width: 100%;  /* Ensures the container takes the full width of its parent */
   gap: 20px;  /* Adjust this value to your desired padding */
+  background-color: aliceblue;
 }
 
 .form {
