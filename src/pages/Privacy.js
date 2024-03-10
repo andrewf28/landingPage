@@ -3,7 +3,7 @@ import React from 'react';
 
 function Privacy() {
   return (
-    <div>
+    <div className="container">
       <h2>Privacy Policy</h2>
       <p>This Privacy Policy sets out buzzly’s treatment of personal data, i.e., data that (i) directly identifies a person, and (ii) may not directly identify a person, but that can reasonably be used to identify a person. This Privacy Policy will not apply to non-personal data,  including aggregated data, and anonymised data.
 

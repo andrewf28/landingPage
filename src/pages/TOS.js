@@ -3,7 +3,7 @@ import React from 'react';
 
 function TOS() {
   return (
-    <div>
+    <div className="container">
       <h2>TOS Page</h2>
       <p>Buzzly Inc. (“Buzzly” “we,” “our,” and/or “us”) provides services that enable an End User to connect their account (each an “Account”) on various third party creator economy platforms, including social networking platforms that allow its users to share pictures, videos or other content  (each, a “Platform”), to web sites and applications such as the software-as-a-service or application run by You.  
 
